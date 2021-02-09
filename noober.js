@@ -67,8 +67,13 @@ function renderRides(ridesArray) {
   }
 }
 
+
 window.addEventListener('DOMContentLoaded', function() {
   // YOUR CODE
+  // Establishing a notification class within "filters" HTML block to clear multi-click notifications
+document.querySelector('.filters').insertAdjacentHTML('beforeend', `
+<div class = "notification"></div>
+`)
   
   let allRidesFilter = document.querySelector('#all-filter')
   allRidesFilter.addEventListener('click', async function(event){
@@ -80,14 +85,8 @@ window.addEventListener('DOMContentLoaded', function() {
   // console.log(rides)
   document.querySelector('.rides').innerHTML = '' //--clearing any existing rides HTML from previous click
   renderRides(rides)
-
-  if (document.querySelectorAll('.notification').value !== null) {
-    document.querySelectorAll('.notification').innerHTML = ''
-  } else {}
-  let outputElement = document.querySelector('.filters')
-  outputElement.insertAdjacentHTML('beforeend', `
-  <div class="notification"><strong>All Rides</strong> was clicked</div>
-  `)
+  console.log('All Rides was clicked')
+  // document.querySelector('.notification').innerHTML = 'All Rides was clicked'
   })
 
   let purpleRidesFilter = document.querySelector('#noober-purple-filter')
@@ -108,22 +107,14 @@ window.addEventListener('DOMContentLoaded', function() {
   renderRides(newArray)
   console.log(newArray)
 
-  if (document.querySelectorAll('.notification').value !== null) {
-    document.querySelectorAll('.notification').innerHTML = ''
-  } else {}
-  let outputElement = document.querySelector('.filters')
-  outputElement.insertAdjacentHTML('beforeend', `
-  <div class="notification"><strong>Noober Purple</strong> was clicked</div>
-  `)
+  console.log('Noober Purple was clicked')
+  // document.querySelector('.notification').innerHTML = 'Noober Purple was clicked'
   })
 
   let poolRidesFilter = document.querySelector('#noober-pool-filter')
   poolRidesFilter.addEventListener('click', async function(event){
     event.preventDefault()
-  let outputElement = document.querySelector('.filters')
-    outputElement.insertAdjacentHTML('beforeend', `
-    <p><strong>Noober Pool</strong> was clicked</p>
-  `)
+
   let response = await fetch(`https://kiei451.com/api/rides.json`)
   let json = await response.json()
   let rides = json
@@ -138,15 +129,18 @@ window.addEventListener('DOMContentLoaded', function() {
   document.querySelector('.rides').innerHTML = '' //--clearing any existing rides HTML from previous click
   renderRides(newArray)
   console.log(newArray)
+
+  console.log('Noober Pool was clicked')
+  // document.querySelector('.notification').innerHTML = 'Noober Pool was clicked'
   })
 
   let xlRidesFilter = document.querySelector('#noober-xl-filter')
   xlRidesFilter.addEventListener('click', async function(event){
     event.preventDefault()
-  let outputElement = document.querySelector('.filters')
-    outputElement.insertAdjacentHTML('beforeend', `
-    <p><strong>Noober XL</strong> was clicked</p>
-  `)
+  // let outputElement = document.querySelector('.filters')
+  //   outputElement.insertAdjacentHTML('beforeend', `
+  //   <p><strong>Noober XL</strong> was clicked</p>
+  // `)
   let response = await fetch(`https://kiei451.com/api/rides.json`)
   let json = await response.json()
   let rides = json
@@ -161,15 +155,15 @@ window.addEventListener('DOMContentLoaded', function() {
   document.querySelector('.rides').innerHTML = '' //--clearing any existing rides HTML from previous click
   renderRides(newArray)
   console.log(newArray)
+
+  console.log('Noober XL was clicked')
+  // document.querySelector('.notification').innerHTML = 'Noober XL was clicked'
   })
   
   let xRidesFilter = document.querySelector('#noober-x-filter')
   xRidesFilter.addEventListener('click', async function(event){
     event.preventDefault()
-  let outputElement = document.querySelector('.filters')
-    outputElement.insertAdjacentHTML('beforeend', `
-    <p><strong>Noober X</strong> was clicked</p>
-  `)
+
   let response = await fetch(`https://kiei451.com/api/rides.json`)
   let json = await response.json()
   let rides = json
@@ -184,6 +178,9 @@ window.addEventListener('DOMContentLoaded', function() {
   document.querySelector('.rides').innerHTML = '' //--clearing any existing rides HTML from previous click
   renderRides(newArray)
   console.log(newArray)
+
+  console.log('Noober X was clicked')
+  // document.querySelector('.notification').innerHTML = 'Noober X was clicked'
   })
 })
 
