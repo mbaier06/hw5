@@ -72,27 +72,27 @@ window.addEventListener('DOMContentLoaded', function() {
   
   let allRidesFilter = document.querySelector('#all-filter')
   allRidesFilter.addEventListener('click', async function(event){
-    // event.preventDefault()
-  let outputElement = document.querySelector('.filters')
-    outputElement.insertAdjacentHTML('beforeend', `
-    <p><strong>All Rides </strong> was clicked</p>
-  `)
+    event.preventDefault()
 
   let response = await fetch(`https://kiei451.com/api/rides.json`)
   let json = await response.json()
   let rides = json
   // console.log(rides)
-
+  document.querySelector('.rides').innerHTML = '' //--clearing any existing rides HTML from previous click
   renderRides(rides)
-  // document.querySelector('.filters').innerHTML = '' // clearing any existing rides HTML from previous click
+
+  if (document.querySelectorAll('.notification').value !== null) {
+    document.querySelectorAll('.notification').innerHTML = ''
+  } else {}
+  let outputElement = document.querySelector('.filters')
+  outputElement.insertAdjacentHTML('beforeend', `
+  <div class="notification"><strong>All Rides</strong> was clicked</div>
+  `)
   })
+
   let purpleRidesFilter = document.querySelector('#noober-purple-filter')
   purpleRidesFilter.addEventListener('click', async function(event){
-    // event.preventDefault()
-  let outputElement = document.querySelector('.filters')
-    outputElement.insertAdjacentHTML('beforeend', `
-    <p><strong>Noober Purple</strong> was clicked</p>
-  `)
+    event.preventDefault()
   let response = await fetch(`https://kiei451.com/api/rides.json`)
   let json = await response.json()
   let rides = json
@@ -104,12 +104,22 @@ window.addEventListener('DOMContentLoaded', function() {
       newArray.push(ride)
     }  else {}
   }
+  document.querySelector('.rides').innerHTML = '' //--clearing any existing rides HTML from previous click
   renderRides(newArray)
   console.log(newArray)
+
+  if (document.querySelectorAll('.notification').value !== null) {
+    document.querySelectorAll('.notification').innerHTML = ''
+  } else {}
+  let outputElement = document.querySelector('.filters')
+  outputElement.insertAdjacentHTML('beforeend', `
+  <div class="notification"><strong>Noober Purple</strong> was clicked</div>
+  `)
   })
+
   let poolRidesFilter = document.querySelector('#noober-pool-filter')
   poolRidesFilter.addEventListener('click', async function(event){
-    // event.preventDefault()
+    event.preventDefault()
   let outputElement = document.querySelector('.filters')
     outputElement.insertAdjacentHTML('beforeend', `
     <p><strong>Noober Pool</strong> was clicked</p>
@@ -125,12 +135,14 @@ window.addEventListener('DOMContentLoaded', function() {
       newArray.push(ride)
     }  else {}
   }
+  document.querySelector('.rides').innerHTML = '' //--clearing any existing rides HTML from previous click
   renderRides(newArray)
   console.log(newArray)
   })
+
   let xlRidesFilter = document.querySelector('#noober-xl-filter')
   xlRidesFilter.addEventListener('click', async function(event){
-    // event.preventDefault()
+    event.preventDefault()
   let outputElement = document.querySelector('.filters')
     outputElement.insertAdjacentHTML('beforeend', `
     <p><strong>Noober XL</strong> was clicked</p>
@@ -146,12 +158,14 @@ window.addEventListener('DOMContentLoaded', function() {
       newArray.push(ride)
     }  else {}
   }
+  document.querySelector('.rides').innerHTML = '' //--clearing any existing rides HTML from previous click
   renderRides(newArray)
   console.log(newArray)
   })
+  
   let xRidesFilter = document.querySelector('#noober-x-filter')
   xRidesFilter.addEventListener('click', async function(event){
-    // event.preventDefault()
+    event.preventDefault()
   let outputElement = document.querySelector('.filters')
     outputElement.insertAdjacentHTML('beforeend', `
     <p><strong>Noober X</strong> was clicked</p>
@@ -167,6 +181,7 @@ window.addEventListener('DOMContentLoaded', function() {
       newArray.push(ride)
     }  else {}
   }
+  document.querySelector('.rides').innerHTML = '' //--clearing any existing rides HTML from previous click
   renderRides(newArray)
   console.log(newArray)
   })
