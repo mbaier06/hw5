@@ -67,14 +67,10 @@ function renderRides(ridesArray) {
   }
 }
 
-
 window.addEventListener('DOMContentLoaded', function() {
   // YOUR CODE
-  // Establishing a notification class within "filters" HTML block to clear multi-click notifications
-document.querySelector('.filters').insertAdjacentHTML('beforeend', `
-<div class = "notification"></div>
-`)
-  
+  let allFilters = document.querySelectorAll('.filter-button')
+
   let allRidesFilter = document.querySelector('#all-filter')
   allRidesFilter.addEventListener('click', async function(event){
     event.preventDefault()
@@ -86,12 +82,17 @@ document.querySelector('.filters').insertAdjacentHTML('beforeend', `
   document.querySelector('.rides').innerHTML = '' //--clearing any existing rides HTML from previous click
   renderRides(rides)
   console.log('All Rides was clicked')
-  // document.querySelector('.notification').innerHTML = 'All Rides was clicked'
+  for (i = 0; i < allFilters.length; i++) {
+    allfilter = allFilters[i]
+    allfilter.classList.remove('bg-gray-300')
+  }
+  allRidesFilter.classList.add('bg-gray-300')
   })
-
+  // Purple Rides
   let purpleRidesFilter = document.querySelector('#noober-purple-filter')
   purpleRidesFilter.addEventListener('click', async function(event){
     event.preventDefault()
+
   let response = await fetch(`https://kiei451.com/api/rides.json`)
   let json = await response.json()
   let rides = json
@@ -105,12 +106,15 @@ document.querySelector('.filters').insertAdjacentHTML('beforeend', `
   }
   document.querySelector('.rides').innerHTML = '' //--clearing any existing rides HTML from previous click
   renderRides(newArray)
-  console.log(newArray)
-
+  // console.log(newArray)
   console.log('Noober Purple was clicked')
-  // document.querySelector('.notification').innerHTML = 'Noober Purple was clicked'
+  for (i = 0; i < allFilters.length; i++) {
+    allfilter = allFilters[i]
+    allfilter.classList.remove('bg-gray-300')
+  }
+  purpleRidesFilter.classList.add('bg-gray-300')
   })
-
+  // Pool Rides
   let poolRidesFilter = document.querySelector('#noober-pool-filter')
   poolRidesFilter.addEventListener('click', async function(event){
     event.preventDefault()
@@ -128,19 +132,19 @@ document.querySelector('.filters').insertAdjacentHTML('beforeend', `
   }
   document.querySelector('.rides').innerHTML = '' //--clearing any existing rides HTML from previous click
   renderRides(newArray)
-  console.log(newArray)
-
+  // console.log(newArray)
   console.log('Noober Pool was clicked')
-  // document.querySelector('.notification').innerHTML = 'Noober Pool was clicked'
+  for (i = 0; i < allFilters.length; i++) {
+    allfilter = allFilters[i]
+    allfilter.classList.remove('bg-gray-300')
+  }
+  poolRidesFilter.classList.add('bg-gray-300')
   })
-
+  // XL Rides
   let xlRidesFilter = document.querySelector('#noober-xl-filter')
   xlRidesFilter.addEventListener('click', async function(event){
     event.preventDefault()
-  // let outputElement = document.querySelector('.filters')
-  //   outputElement.insertAdjacentHTML('beforeend', `
-  //   <p><strong>Noober XL</strong> was clicked</p>
-  // `)
+
   let response = await fetch(`https://kiei451.com/api/rides.json`)
   let json = await response.json()
   let rides = json
@@ -154,12 +158,15 @@ document.querySelector('.filters').insertAdjacentHTML('beforeend', `
   }
   document.querySelector('.rides').innerHTML = '' //--clearing any existing rides HTML from previous click
   renderRides(newArray)
-  console.log(newArray)
-
+  // console.log(newArray)
   console.log('Noober XL was clicked')
-  // document.querySelector('.notification').innerHTML = 'Noober XL was clicked'
+  for (i = 0; i < allFilters.length; i++) {
+    allfilter = allFilters[i]
+    allfilter.classList.remove('bg-gray-300')
+  }
+  xlRidesFilter.classList.add('bg-gray-300')
   })
-  
+  // X Rides
   let xRidesFilter = document.querySelector('#noober-x-filter')
   xRidesFilter.addEventListener('click', async function(event){
     event.preventDefault()
@@ -177,10 +184,13 @@ document.querySelector('.filters').insertAdjacentHTML('beforeend', `
   }
   document.querySelector('.rides').innerHTML = '' //--clearing any existing rides HTML from previous click
   renderRides(newArray)
-  console.log(newArray)
-
+  // console.log(newArray)
   console.log('Noober X was clicked')
-  // document.querySelector('.notification').innerHTML = 'Noober X was clicked'
+  for (i = 0; i < allFilters.length; i++) {
+    allfilter = allFilters[i]
+    allfilter.classList.remove('bg-gray-300')
+  }
+  xRidesFilter.classList.add('bg-gray-300')
   })
 })
 
