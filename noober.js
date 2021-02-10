@@ -96,7 +96,7 @@ window.addEventListener('DOMContentLoaded', function() {
   let response = await fetch(`https://kiei451.com/api/rides.json`)
   let json = await response.json()
   let rides = json
-  console.log(rides)
+  // console.log(rides)
   newArray = []
   for (i =0; i < rides.length; i++) {
     ride = rides[i]
