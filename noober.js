@@ -63,6 +63,7 @@ function renderRides(ridesArray) {
 }
 window.addEventListener('DOMContentLoaded', function() {
   // YOUR CODE
+
   let allFilters = document.querySelectorAll('.filter-button') // needed for classList button color change
   let allRidesFilter = document.querySelector('#all-filter')
   allRidesFilter.addEventListener('click', async function(event){
